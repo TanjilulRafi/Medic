@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+        }
+
+        .product-image {
+            display: block;
+            margin: 0 auto;
+            max-width: 300px;
+            height: 350px;
+            width: 400px;
+        }
+
+        .product-details {
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+    <img src="/media/{{query.image}}" alt="Product Image" class="product-image">
+    <div class="product-details">
+        <h2>{{query.product_name}}</h2>
+        <p><strong>Generic:</strong> {{query.generic}}</p>
+        <p><strong>Description:</strong> {{query.desc}}</p>
+        <p><strong>Price:</strong> {{query.price}} Tk</p>
+    </div>
+</body>
+</html>

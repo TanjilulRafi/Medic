@@ -1,0 +1,40 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Admin LogIn</title>
+    <link href="{% static '/style.css' %}" rel="stylesheet">
+</head>
+<body>
+  <div class="card bg-light p-5">
+    {% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show"
+    role="alert">
+        <strong> {{message}} </strong>
+    {% endfor %}
+  <section>
+    <div class="form-box">
+      <div class="form-value">
+        <form action="/admin/adminlogin" method="post">{% csrf_token %}
+          <h2>Welcome Admin</h2>
+          <div class="input-box">
+            <ion-icon name="person-outline"></ion-icon>
+            <input type="text" name="username" id="username" required>
+            <label for="">Username</label>
+
+          </div>
+          <div class="input-box">
+            <ion-icon name="lock-closed-outline"></ion-icon>
+            <input type="password" name="pass" id="pass" required>
+            <label for="">Password</label>
+          </div>
+          <button type="submit">Log in</button>
+        </form>
+      </div>
+    </div>
+  </section>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+</body>
+</html>

@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+{% block title %}History{% endblock title %}
+{% block body %}
+<section id="portfolio" class="portfolio">
+<div class="container">
+        <h1>Order hisory</h1>
+
+    <table class="table table-info table-striped text-center">
+        <thead>
+            <tr>
+                <th scope="col">Your Order Id</th>
+                <th scope="col">Products</th>
+                <th scope="col">Name</th>
+                <th scope="col">Email</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Address</th>
+                <th scope="col">Delivery status</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in items %}
+            <tr>
+                <th scope="row">{{i.order_id}}</th>
+                <td>{% for product_info in i.get_product_info %}
+                    <b>{{ product_info.name }};</b>
+                    Quantity: {{ product_info.quantity }},
+                    <b>Unit Price:</b>{{ product_info.unit_price }}<i>Tk</i><br>
+                    {% endfor %}
+                </td>                
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.address1}}</td>
+                <td>{{i.delivered}}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>    
+</section>
+
+{% endblock body %}

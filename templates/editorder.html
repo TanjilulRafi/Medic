@@ -1,0 +1,75 @@
+{% extends 'adminbase.html' %} 
+{% block title %}Edit order{% endblock title %} 
+
+{% block body %}
+{%load static%}
+
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show"
+    role="alert">
+        <strong> {{message}} </strong>
+      </div>
+    {% endfor %}
+    <form action="{{query.order_id}}" method="post">{% csrf_token %}
+    <div class="container_r">
+    <table class="table table-info table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Order ID: </th>
+                <td>{{query.order_id}}</td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Customer Name: </th>
+                <td>{{query.name}}</td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Items: </th>
+                <td>{{query.items_json}}</td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">E-mail: </th>
+                <td>{{query.email}}</td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Phone: </th>
+                <td>{{query.phone}}</td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Address: </th>
+                <td>{{query.address1}}</td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">City: </th>
+                <td>{{query.city}}</td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Amount: </th>
+                <td><input type="text" name="amount" value="{{query.amount}}" required></td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Delivery status: </th>
+                <td><input type="text" name="delivered" value="{{query.delivered}}" required></td>
+            </tr>
+        </thead>
+    </table>
+</div>  
+<button type="submit" class="btn">Update</button>  
+</form>
+
+{% endblock body %} 

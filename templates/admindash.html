@@ -1,0 +1,44 @@
+{% extends 'adminbase.html' %} 
+{% block title %}Dashboard{% endblock title %} 
+
+{% block body %}
+{%load static%}
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show"
+    role="alert">
+        <strong> {{message}} </strong>
+      </div>
+    {% endfor %}
+<h2>Dashboard</h2>
+      <div class="promo_card">
+        <h1>Welcome to Medic</h1>
+        <span>What can we do today</span>
+      </div>
+
+
+      <div class="cardBox">
+        <div class="card">
+            <div>
+                <a href="order"><div class="numbers">{{oc}}</div>
+                <div class="cardName">Total Orders</div></a>
+            </div>
+
+        </div>
+
+        <div class="card">
+            <div>
+                <a href="admincomplain"><div class="numbers">{{uc}}</div>
+                <div class="cardName">Total Reports</div></a>
+            </div>
+        </div>
+
+        <div class="card">
+            <div>
+                <a href="adminproduct"><div class="numbers">{{pc}}</div>
+                <div class="cardName">Total Products</div></a>
+            </div>
+        </div>
+    </div>
+    </div>
+
+{% endblock body %} 

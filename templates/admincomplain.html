@@ -1,0 +1,45 @@
+{% extends 'adminbase.html' %} 
+{% block title %}Complains{% endblock title %}
+
+{% block body %}
+{%load static%}
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show"
+    role="alert">
+        <strong> {{message}} </strong>
+      </div>
+    {% endfor %}
+      {% comment %} <div class="promo_card">
+        <h1>Welcome to Medic</h1>
+        <span>What can we do today</span>
+      </div> {% endcomment %}
+    <div class="container">
+    <table class="table table-primary table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Contact ID</th>
+                <th scope="col"> Name</th>
+                <th scope="col">E-mail</th>
+                <th scope="col">Phone</th>
+                <th scope="col">Description</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in obs %}
+            <tr>
+                <th scope="row">{{i.contact_id}}</th>
+                <td>{{i.name}}</td>
+                <td>{{i.email}}</td>
+                <td>{{i.phone}}</td>
+                <td>{{i.desc}}</td>
+                <td>
+                <h2><a href="admincomplain/{{i.contact_id}}" ><ion-icon name="trash-outline"></ion-icon></a></h2>
+                </td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>    
+
+{% endblock body %} 

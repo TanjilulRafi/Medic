@@ -1,0 +1,54 @@
+{% extends 'adminbase.html' %} 
+{% block title %}Product Table{% endblock title %} 
+
+{% block content %}
+<a href="addprod"><ion-icon name="add-circle-outline"></ion-icon>Add product</a>
+{%endblock content%}
+
+{% block body %}
+{%load static%}
+
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show"
+    role="alert">
+        <strong> {{message}} </strong>
+      </div>
+    {% endfor %}
+    <div class="container_r">
+    <table class="table table-info table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Product ID</th>
+                <th scope="col">Product Name</th>
+                <th scope="col">Category</th>
+                <th scope="col">Generic</th>
+                <th scope="col">Price</th>
+                <th scope="col">Description</th>
+                <th scope="col">Image</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for i in obs %}
+            <tr>
+                <th scope="row">{{i.product_id}}</th>
+                <td>{{i.product_name}}</td>
+                <td>{{i.category}}</td>
+                <td>{{i.generic}}</td>
+                <td>{{i.price}} Tk</td>
+                <td>{{i.desc}}</td>
+                <td><img src='/media/{{i.image}}' class="card-img-top" alt="not found" height="120px" width="120px"/></td>
+                <td>
+                <h2><a href="editprod/{{i.product_id}}" ><ion-icon name="pencil-outline"></ion-icon></a></h2>
+                </td>
+                <td>
+                <h2><a href="deleteprod/{{i.product_id}}" ><ion-icon name="trash-outline"></ion-icon></a></h2>
+                </td> 
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>    
+
+{% endblock body %} 

@@ -1,0 +1,57 @@
+{% extends 'adminbase.html' %} 
+{% block title %}Add Product{% endblock title %} 
+
+{% block body %}
+{%load static%}
+
+{% for message in messages %}
+    <div class="alert alert-{{message.tags}} alert-dismissible fade show"
+    role="alert">
+        <strong> {{message}} </strong>
+      </div>
+    {% endfor %}
+    <form action="addprod" method="post">{% csrf_token %}
+    <div class="container_r">
+    <table class="table table-info table-striped">
+        <thead>
+            <tr>
+                <th scope="col">Product Name: </th>
+                <td><input type="text" name="product_name" required></td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Category: </th>
+                <td><input type="text" name="category" required></td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Generic: </th>
+                <td><input type="text" name="generic" required></td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Price: </th>
+                <td><input type="text" name="price" required></td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Description: </th>
+                <td><input type="text" name="desc" required></td>
+            </tr>
+        </thead>
+        <thead>
+            <tr>
+                <th scope="col">Image: </th>
+                <td><input type="file" name="image" accept="image/*" ></td>
+            </tr>
+        </thead>
+    </table>
+</div>  
+<button type="submit" class="btn">Add Item</button>  
+</form>
+
+{% endblock body %} 

@@ -1,0 +1,60 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>
+    {% block title %} {% endblock title %}
+  </title>
+  <link rel="stylesheet" href="{% static '/style.css' %}"/>
+  <!-- Font Awesome Cdn Link -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" />
+  
+</head>
+<body>
+  <header class="header">
+    <div class="logo">
+      <a href="/">Medic</a>
+    </div>
+    <div class="search_box">
+      <form action="adminsearch" method="get">
+      <input type="text" name="getdata" placeholder="Search Product"/>
+      {% comment %} <button type="submit"><i class="fas fa-search"></i></button> {% endcomment %}
+      </form>
+    </div>
+
+    <div class="header-icons">
+      {% comment %} <div class="account">
+        <h4>Hello</h4>
+      </div> {% endcomment %}
+      <a href="adminlogout">LogOut<ion-icon name="log-out-outline"></ion-icon></a>
+    </div>
+  </header>
+<div class="container_r">
+    <nav>
+        <div class="side_navbar">
+        <span>Main Menu</span>
+        <a href="/admin/admindash"><ion-icon name="contrast-outline"></ion-icon>Dashboard</a>
+        <a href="adminproduct"><ion-icon name="pricetags-outline"></ion-icon>Product</a>
+        <a href="admincomplain"><ion-icon name="chatbox-ellipses-outline"></ion-icon>Complains</a>
+        <a href="order"><ion-icon name="receipt-outline"></ion-icon>Orders</a>
+        {% comment %} <a href="#">My Account</a>
+        <a href="#">Documnets</a> {% endcomment %}
+        {%block content%}
+        
+        {%endblock content%}
+        </div>
+    </nav>
+
+    <div class="main-body"> 
+        {% block body %} 
+
+        {% endblock body %}
+
+    </div>
+</div>
+  <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+  <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</html>
